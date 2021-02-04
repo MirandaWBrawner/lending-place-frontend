@@ -1,0 +1,73 @@
+<div *ngIf="confirmingRequest; else confirmElseBlock">
+    <h1>Checkout</h1>
+    <button (click)="placeOrder(requesterName.value)">Confirm</button>
+    <p> When you are ready to submit your order to the library, 
+        press Confirm. If you would like to leave your name 
+        with your order, you may do so below.
+    </p>
+    <p>Name: <input type="text" name="name" #requesterName></p>
+    <ul><li class="itemOnConfirmList" *ngFor="let lendable of cart">
+        {{lendableName(lendable, language)}}
+    </li>
+    </ul>
+</div>
+<ng-template #confirmElseBlock>
+<h1 i18n="browse the lending place | header on browse page">{{localize("Browse the Lending Place")}}</h1>
+<div><input i18n="search | placeholder on browse page" #searchTerm type="text" [placeholder]="localize('Search')"
+    (keyup.enter)="search(searchTerm.value)" [dir]="textDirection(language)">
+<button i18n="search | button to search for products"
+(click)="search(searchTerm.value)">{{localize("Search")}}</button></div>
+<div>
+<button i18n="back to browse | button that takes you back to the browsing view when you 
+are on the view cart page" *ngIf="viewingCart; else elseButton"
+(click)="viewCart()">Back to Browse</button>
+<ng-template #elseButton>
+<button i18n="view cart | button that shows all the items you have placed in your cart" 
+(click)="viewCart()">View Cart</button></ng-template>
+<button i18n="checkout | button that takes you to checkout menu"
+(click)="toggleConfirm()">Ready to Checkout</button>
+</div>
+<p>Search by category:</p>
+<p class="categoryList">
+        <span [class]="getStyleClassForCategory(-1)" (click)="selectCategory(-1)">
+            {{localize("Everything")}}</span>
+        <span [class]="getStyleClassForCategory(category.id)" *ngFor="let category of categories"
+        (click)="selectCategory(category.id)">{{lendableName(category, language)}}</span>
+</p>
+<table *ngIf="viewingCart; else viewCartElseBlock">
+    <tr *ngFor="let lendable of cart">
+        <td><img class="lendableImage" [src]="lendable.extendedImagePath"></td>
+        <td class="item">
+            <div class="itemName">{{lendableName(lendable, language)}}</div>
+            <div i18n="available | number available to borrow" 
+            class="numberAvailable">
+                {{availableText(lendable)}}: 
+                {{lendable.numberAvailable}}</div>
+            <div class="numberOnLoan" i18n="on loan | number of copies on loan">
+                {{nullUndefToZero(lendable.numberOnLoan)}} out on loan
+            </div>
+            <button i18n="remove from cart | remove one of this item from the cart"
+                (click)="removeFromCart(lendable)">Remove From Cart</button>
+        </td>
+    </tr>
+</table>
+<ng-template #viewCartElseBlock>
+    <table>
+        <tr *ngFor="let lendable of displayedLendables">
+            <td><img class="lendableImage" [src]="lendable.extendedImagePath"></td>
+            <td class="item">
+                <div class="itemName">{{lendableName(lendable, language)}}</div>
+                <div i18n="available | number available to borrow" 
+                class="numberAvailable">
+                    {{availableText(lendable)}}: 
+                    {{toLocalFormat(lendable.numberAvailable)}}</div>
+                <div class="numberOnLoan" i18n="on loan | number of copies on loan">
+                    {{nullUndefToZero(lendable.numberOnLoan)}} out on loan
+                </div>
+                <button i18n="add to cart | add one of this item to cart to borrow" (click)="addToCart(lendable)">Add to
+                    Cart</button>
+            </td>
+        </tr>
+    </table>
+</ng-template>
+</ng-template>

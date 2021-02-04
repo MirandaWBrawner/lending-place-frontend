@@ -1,0 +1,16 @@
+<div class="navMenu">
+<div class="languageMenu">
+    <app-language-list></app-language-list>
+</div>
+<div class="taskMenu">
+</div>
+<ul>
+<li><a [routerLink]="getPathName('/browse')" class="sidebarLink">Browse our Library</a></li>
+<li><a [routerLink]="getPathName('/recommend')" class="sidebarLink">Recommend an Item</a></li>
+<li><a [routerLink]="getPathName('/donate')" class="sidebarLink">Make a Donation</a></li>
+<li><a [routerLink]="getPathName('/login')" class="sidebarLink">Log In</a></li>
+</ul>
+</div>
+<div class="mainContent">
+<router-outlet></router-outlet>
+</div>

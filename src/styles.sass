@@ -1,0 +1,55 @@
+$pictureWidth: 150px
+$pictureHeight: 225px
+$brightBurgundy: #904
+$mediumLightPink: #DF9FBF
+$darkBurgundy: #603
+body
+    background-color: #FFCCE6
+h1, p, button, .itemName, .numberAvailable, .numberOnLoan, a, li, td, select, option
+    font-family: Verdana, Helvetica, sans-serif
+.lendableImage
+    max-width: $pictureWidth
+    max-height: $pictureHeight
+.itemName
+    font-size: 200%
+button
+    background-color: $darkBurgundy
+    color: #FFF
+    border-radius: 10px
+    margin: 10px
+    padding: 5px
+    box-shadow: 0px
+a
+    color: $brightBurgundy
+    text-decoration: underline
+    font-weight: bold
+.item
+    background-color: $mediumLightPink
+    border-radius: 20px
+    padding: 10px
+    margin: 10px
+div, td, tr, th, table, button, h1, p, span, li
+    box-sizing: border-box
+.navMenu
+    position: fixed
+.mainContent
+    margin-left: 300px
+li
+    list-style-type: none
+.selectedCategory, .categoryNotSelected
+    border-radius: 10px
+    margin: 10px
+    padding: 10px
+.categoryNotSelected
+    background-color: $mediumLightPink
+    color: #000
+.categoryNotSelected:hover
+    background-color: $brightBurgundy
+    color: #FFF
+.selectedCategory
+    background-color: $darkBurgundy
+    color: #FFF
+.categoryList
+    line-height: 350%
+.failedLogin
+    text-align: center

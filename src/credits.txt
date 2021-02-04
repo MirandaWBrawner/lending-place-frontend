@@ -1,0 +1,31 @@
+Credits
+https://sass-lang.com/documentation/syntax#the-indented-syntax
+https://angular.io/guide/property-binding
+https://www.w3schools.com/css
+https://en.wiktionary.org/wiki/Wiktionary:Main_Page
+https://www.wordreference.com/
+https://translate.google.com
+https://www.w3docs.com/snippets
+https://www.baeldung.com/jpa-many-to-many
+https://github.com/eugenp/tutorials/issues/248
+https://shabdkosh.com/
+https://www.xspdf.com/resolution/55863235.html
+https://www.codejava.net/frameworks/spring-boot/spring-boot-security-role-based-authorization-tutorial
+https://jwt.io/
+https://www.mysqltutorial.org/mysql-foreign-key/
+https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html
+https://french.stackexchange.com/questions/12835/title-case-in-french-majuscules-dans-les-titres
+https://stackoverflow.com/questions/38212529/relative-links-partial-routes-with-routerlink
+https://africanlanguages.com/swahili/
+https://en.bab.la/dictionary/english-swahili/
+https://stackoverflow.com/questions/50135607/get-selected-value-from-a-drop-down-list-in-angular
+https://www.tutorialspoint.com/typescript/typescript_string_charcodeat.htm
+https://www.tektutorialshub.com/angular/angular-http-post-example/
+https://stackoverflow.com/questions/37764665/typescript-sleep
+https://stackoverflow.com/questions/51049806/how-to-read-the-status-from-response-in-angular-http
+
+Oliver Gierke, Thomas Darimont, Christoph Strobl, Mark Paluch, and Jay Bryant. Spring Data JPA.
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.details
+
+Mahaodeh, 2011. Word Reference.
+https://forum.wordreference.com/threads/%d9%85%d8%b3%d9%8a%d8%b1%d8%a9-%d9%85%d8%b8%d8%a7%d9%87%d8%b1%d8%a9-%d8%ad%d8%b4%d8%af-protest.2155881/

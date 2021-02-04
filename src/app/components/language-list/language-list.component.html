@@ -1,0 +1,6 @@
+<ul>
+<li *ngFor="let language of availableLanguages">
+    <a routerLink="{{language.abbr}}">{{language.name}}</a>
+    <!-- <a (click)="changeLanguage(language)">{{language.name}}</a> -->
+</li>
+</ul>
