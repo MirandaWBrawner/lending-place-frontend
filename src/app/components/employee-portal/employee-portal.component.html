@@ -1,1 +1,12 @@
 <h1>Employee Portal</h1>
+<table>
+    <tr>
+        <th>Item Name</th><th>Number of Copies Requested</th><th>Requested By</th><th>Date</th>
+    </tr>
+    <tr *ngFor="let loan of pendingLoans">
+        <td>loan.lendable.english</td>
+        <td>loan.count</td>
+        <td>loan.name</td>
+        <td>loan.date</td>
+    </tr>
+</table>

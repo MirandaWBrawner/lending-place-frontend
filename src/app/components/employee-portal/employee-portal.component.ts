@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PendingLoan } from 'src/app/common/PendingLoan';
+import { PendingLoanService } from 'src/app/services/pending-loan.service';
 
 @Component({
   selector: 'app-employee-portal',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeePortalComponent implements OnInit {
 
-  constructor() { }
+  pendingLoans: PendingLoan[] = [];
+
+  constructor(private loanService: PendingLoanService) { }
 
   ngOnInit(): void {
+    this.loanService.getLoans().subscribe(
+      results => this.pendingLoans = results
+    );
   }
-
 }
