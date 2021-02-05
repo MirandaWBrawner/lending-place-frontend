@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Currency } from 'src/app/common/Currency';
+import { DonationRequest } from 'src/app/common/DonationRequest';
+import { DonationService } from 'src/app/services/donation.service';
 
 @Component({
   selector: 'app-donation',
@@ -7,6 +11,19 @@ import { Currency } from 'src/app/common/Currency';
   styleUrls: ['./donation.component.sass']
 })
 export class DonationComponent implements OnInit {
+
+  message = '';
+  missingField = true;
+  attempted = false;
+  donateFormGroup: FormGroup = this.formBuilder.group({
+    donorName: [''],
+    amount: [0],
+    cardNumber: [''],
+    email: [''],
+    phone: [''],
+    mailingAddress: [''],
+    currency: ['']
+  });
 
   currencies: Currency[] = [
     new Currency('AED', 'United Arab Emirates Dirham'),
@@ -173,13 +190,56 @@ export class DonationComponent implements OnInit {
     new Currency('ZWD', 'Zimbabwe Dollar')
   ];
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder,
+              private donationService: DonationService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
 
   formatCurrency(c: Currency): string {
     return `${c.abbr} - ${c.name}`;
+  }
+
+  checkFields(): void {
+    const name: string = this.donateFormGroup.get('donorName')?.value;
+    const amount: number = Math.floor(this.donateFormGroup.get('amount')?.value * 1000);
+    const cardNumber: string = this.donateFormGroup.get('cardNumber')?.value;
+    const email: string = this.donateFormGroup.get('email')?.value;
+    const currency: string = this.donateFormGroup.get('currency')?.value;
+    const requiredFields = [name, amount, cardNumber, email, currency];
+    for (const field of requiredFields) {
+      if (field === null || field === undefined || field + '' === '') {
+        this.missingField = true;
+        return;
+      }
+    }
+    this.missingField = false;
+  }
+
+  onSubmit(): void {
+    const name: string = this.donateFormGroup.get('donorName')?.value;
+    const amount: number = Math.floor(this.donateFormGroup.get('amount')?.value * 1000);
+    const cardNumber: string = this.donateFormGroup.get('cardNumber')?.value;
+    const email: string = this.donateFormGroup.get('email')?.value;
+    const phone: string = this.donateFormGroup.get('phone')?.value;
+    const mailingAddress: string = this.donateFormGroup.get('mailingAddress')?.value;
+    const currency: string = this.donateFormGroup.get('currency')?.value;
+    const requiredFields = [name, amount, cardNumber, email, currency];
+    for (const field of requiredFields) {
+      if (field === null || field === undefined || field + '' === '') {
+        this.missingField = true;
+        this.attempted = true;
+        return;
+      }
+    }
+    this.missingField = false;
+    const request = new DonationRequest(name, amount, cardNumber, email, phone, mailingAddress, currency);
+    this.donationService.donate(request).subscribe(
+        result => {this.message = result.message; }
+    );
+    this.attempted = false;
+    this.router.navigate(['/donateThankYou']);
   }
 
 }

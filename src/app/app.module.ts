@@ -15,6 +15,7 @@ import { EmployeePortalComponent } from './components/employee-portal/employee-p
 import { FailedLoginComponent } from './components/failed-login/failed-login.component';
 import { RecommendationThankYouComponent } from './components/recommendation-thank-you/recommendation-thank-you.component';
 import { LoanOrderConfirmationComponent } from './components/loan-order-confirmation/loan-order-confirmation.component';
+import { DonationThankYouComponent } from './components/donation-thank-you/donation-thank-you.component';
 
 const routes: Routes = [
   {path: 'browse', component: LendableComponent},
@@ -31,6 +32,8 @@ const routes: Routes = [
   {path: 'failedLogin/:language', component: FailedLoginComponent},
   {path: 'recommendThankYou', component: RecommendationThankYouComponent},
   {path: 'recommendThankYou/:language', component: RecommendationThankYouComponent},
+  {path: 'donateThankYou', component: DonationThankYouComponent},
+  {path: 'donateThankYou/:language', component: DonationThankYouComponent},
   {path: 'confirm', component: LoanOrderConfirmationComponent},
   {path: 'confirm/:language', component: LoanOrderConfirmationComponent},
   {path: 'en', redirectTo: '/browse/en', pathMatch: 'full'},
@@ -54,7 +57,8 @@ const routes: Routes = [
     EmployeePortalComponent,
     FailedLoginComponent,
     RecommendationThankYouComponent,
-    LoanOrderConfirmationComponent
+    LoanOrderConfirmationComponent,
+    DonationThankYouComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
