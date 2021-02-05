@@ -23,7 +23,7 @@ are on the view cart page" *ngIf="viewingCart; else elseButton"
 (click)="viewCart()">Back to Browse</button>
 <ng-template #elseButton>
 <button i18n="view cart | button that shows all the items you have placed in your cart" 
-(click)="viewCart()">View Cart</button></ng-template>
+(click)="viewCart()">{{localize("View Cart")}}</button></ng-template>
 <button i18n="checkout | button that takes you to checkout menu"
 (click)="toggleConfirm()">Ready to Checkout</button>
 </div>
@@ -43,7 +43,8 @@ are on the view cart page" *ngIf="viewingCart; else elseButton"
             class="numberAvailable">
                 {{availableText(lendable)}}: 
                 {{lendable.numberAvailable}}</div>
-            <div class="numberOnLoan" i18n="on loan | number of copies on loan">
+            <div *ngIf="showNumberOnLoan" class="numberOnLoan" 
+            i18n="on loan | number of copies on loan">
                 {{nullUndefToZero(lendable.numberOnLoan)}} out on loan
             </div>
             <button i18n="remove from cart | remove one of this item from the cart"
@@ -61,11 +62,12 @@ are on the view cart page" *ngIf="viewingCart; else elseButton"
                 class="numberAvailable">
                     {{availableText(lendable)}}: 
                     {{toLocalFormat(lendable.numberAvailable)}}</div>
-                <div class="numberOnLoan" i18n="on loan | number of copies on loan">
+                <div *ngIf="showNumberOnLoan" class="numberOnLoan" 
+                i18n="on loan | number of copies on loan">
                     {{nullUndefToZero(lendable.numberOnLoan)}} out on loan
                 </div>
-                <button i18n="add to cart | add one of this item to cart to borrow" (click)="addToCart(lendable)">Add to
-                    Cart</button>
+                <button i18n="add to cart | add one of this item to cart to borrow" 
+                (click)="addToCart(lendable)">{{localize("Add to Cart")}}</button>
             </td>
         </tr>
     </table>

@@ -1,12 +1,24 @@
-<h1>Employee Portal</h1>
-<table>
+<div class="centeredContent">
+<h1 class="portalHeader">Employee Portal</h1>
+<table class="loanTable">
     <tr>
-        <th>Item Name</th><th>Number of Copies Requested</th><th>Requested By</th><th>Date</th>
+        <th id="loanItemHeader">Item Name</th>
+        <th id="numberOfCopiesHeader" class="narrowColumn">Number of Copies Requested</th>
+        <th id="requestedHeader">Requested By</th>
+        <th id="dateHeader">Date</th>
+        <th id="dateHeader">Request Status</th>
+        <th colspan=2>Actions</th>
     </tr>
     <tr *ngFor="let loan of pendingLoans">
-        <td>loan.lendable.english</td>
-        <td>loan.count</td>
-        <td>loan.name</td>
-        <td>loan.date</td>
+        <td class="loanTableLeft">{{loan.lendable.english}}</td>
+        <td class="loanTableCenter narrowColumn">{{loan.count}}</td>
+        <td class="loanTableCenter">{{loan.name}}</td>
+        <td class="loanTableCenter">{{dateString(loan.milliseconds)}}</td>
+        <td class="loanTableRight">{{loanStatus(loan)}}</td>
+        <td><button [disabled]="!isReadyForCheckout(loan)" 
+            (click)="checkoutOne(loan)">Checkout One</button></td>
+        <td><button [disabled]="!isReadyForCheckout(loan)" 
+            (click)="checkoutSeveral(loan)">Checkout Max Number</button></td>
     </tr>
 </table>
+</div>

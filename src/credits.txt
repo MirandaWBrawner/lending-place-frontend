@@ -24,6 +24,12 @@ https://www.tektutorialshub.com/angular/angular-http-post-example/
 https://stackoverflow.com/questions/37764665/typescript-sleep
 https://stackoverflow.com/questions/51049806/how-to-read-the-status-from-response-in-angular-http
 https://www.javatpoint.com/typescript-date-object
+https://www.typescriptlang.org/docs/handbook/basic-types.html
+https://electrictoolbox.com/pad-number-zeroes-javascript/
+https://www.xe.com/iso4217.php
+https://www.w3docs.com/snippets/css/how-to-create-a-placeholder-for-an-html5-select-box-by-using-only-html-and-css.html
+https://www.mysql.com/
+https://stackoverflow.com/questions/44864303/send-data-through-routing-paths-in-angular
 
 Oliver Gierke, Thomas Darimont, Christoph Strobl, Mark Paluch, and Jay Bryant. Spring Data JPA.
 https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.details

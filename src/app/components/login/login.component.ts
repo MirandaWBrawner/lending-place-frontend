@@ -19,12 +19,7 @@ export class LoginComponent implements OnInit {
               private loginService: LoginService,
               private router: Router) { }
 
-  ngOnInit(): void {
-    this.loginFormGroup = this.formBuilder.group({
-      username: [''],
-      password: ['']
-    });
-  }
+  ngOnInit(): void { }
 
   onSubmit(): void {
     let token = '';
@@ -37,7 +32,6 @@ export class LoginComponent implements OnInit {
       && password !== null && password !== undefined && typeof password === 'string') {
         this.loginService.login(username, password).subscribe(
           result => {
-            console.log(result.jwt);
             token = result.jwt;
           }
         );
@@ -45,7 +39,7 @@ export class LoginComponent implements OnInit {
     }
     setTimeout(() => {
       if (token !== '') {
-        this.router.navigate(['/employeePortal']);
+        this.router.navigate(['/employeePortal', {jwt: token}]);
       } else {
         this.router.navigate(['/failedLogin']);
       }

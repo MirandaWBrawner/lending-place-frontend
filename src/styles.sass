@@ -5,16 +5,27 @@ $mediumLightPink: #DF9FBF
 $darkBurgundy: #603
 body
     background-color: #FFCCE6
-h1, p, button, .itemName, .numberAvailable, .numberOnLoan, a, li, td, select, option
+h1, p, button, .itemName, .numberAvailable, .numberOnLoan, a, li, th, td, select, option, text, textarea
     font-family: Verdana, Helvetica, sans-serif
 .lendableImage
     max-width: $pictureWidth
     max-height: $pictureHeight
 .itemName
     font-size: 200%
+button, button:hover, button:disabled
+    border-radius: 10px
+    margin: 10px
+    padding: 5px
+    box-shadow: 0px
 button
     background-color: $darkBurgundy
     color: #FFF
+button:hover
+    background-color: $brightBurgundy
+    color: #FFF
+button:disabled
+    background-color: #967
+    color: #CAB
     border-radius: 10px
     margin: 10px
     padding: 5px
@@ -51,5 +62,31 @@ li
     color: #FFF
 .categoryList
     line-height: 350%
-.failedLogin
+.failedLogin, .loanTableCenter, .cetered
     text-align: center
+.loanTableRight
+    text-align: right
+.loanTableLeft, loanTableCenter, loanTableRight
+    max-width: 150px
+    padding-left: 20px
+    padding-right: 20px
+    padding-top: 3px
+    padding-bottom: 3px
+    margin-left: 10px
+    margin-right: 10px
+.loanTable
+    background-color: $mediumLightPink
+    padding: 10px
+    text-align: center
+.narrowColumn
+    max-width: 120px
+.loanItemHeader, .numberOfCopiesHeader, .requestedHeader, dateHeader
+    text-align: center
+textarea
+    max-width: 700px
+label
+    padding-left: 10px
+    padding-right: 20px
+.optionalFieldLabel
+    padding-right: 20px
+    padding-left: 10px

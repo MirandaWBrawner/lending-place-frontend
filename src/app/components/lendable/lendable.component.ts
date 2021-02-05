@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Lendable } from '../../common/Lendable';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LendableService } from 'src/app/services/lendable.service';
 import { Language } from '../../common/Language';
 import { formatNumber } from '@angular/common';
@@ -34,10 +34,12 @@ export class LendableComponent implements OnInit {
   cart: Lendable[] = [];
   viewingCart = false;
   confirmingRequest = false;
+  showNumberOnLoan = false;
   reserveResponse: ReserveResponse | null = null;
   @Output() public updateNotifier: EventEmitter<string> = new EventEmitter();
   constructor(private currentPath: ActivatedRoute,
-              private lendableService: LendableService) {}
+              private lendableService: LendableService,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.updateNotifier.emit('/browse');
@@ -168,6 +170,7 @@ export class LendableComponent implements OnInit {
     this.lendableService.reserve(reserveForm).subscribe(
       response => this.reserveResponse = response
     );
+    this.router.navigate(['/confirm']);
   }
   translationFromArray(array: string[]): string {
     if (array.length < this.languageArray.length) {
@@ -275,6 +278,26 @@ export class LendableComponent implements OnInit {
             'Tout',
             'Everything'
           ]);
+          case 'Add to Cart':
+            return this.translationFromArray([
+              'Ongeza kwa mkokoteni',
+              'जोड़िये',
+              'أَضِيفَا‎',
+              '加',
+              'Añada a su carrito',
+              'Ajouter à votre panier',
+              'Add to Cart'
+            ]);
+          case 'View Cart':
+            return this.translationFromArray([
+              'Mkokoteni',
+              'अपनी टोकरी',
+              'عربة التسوق',
+              '你的购物车',
+              'Su carrito',
+              'Votre panier',
+              'Your Cart'
+            ]);
       default: return '?';
     }
   }

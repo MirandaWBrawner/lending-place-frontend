@@ -13,6 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeePortalComponent } from './components/employee-portal/employee-portal.component';
 import { FailedLoginComponent } from './components/failed-login/failed-login.component';
+import { RecommendationThankYouComponent } from './components/recommendation-thank-you/recommendation-thank-you.component';
+import { LoanOrderConfirmationComponent } from './components/loan-order-confirmation/loan-order-confirmation.component';
 
 const routes: Routes = [
   {path: 'browse', component: LendableComponent},
@@ -27,6 +29,10 @@ const routes: Routes = [
   {path: 'employeePortal/:language', component: EmployeePortalComponent},
   {path: 'failedLogin', component: FailedLoginComponent},
   {path: 'failedLogin/:language', component: FailedLoginComponent},
+  {path: 'recommendThankYou', component: RecommendationThankYouComponent},
+  {path: 'recommendThankYou/:language', component: RecommendationThankYouComponent},
+  {path: 'confirm', component: LoanOrderConfirmationComponent},
+  {path: 'confirm/:language', component: LoanOrderConfirmationComponent},
   {path: 'en', redirectTo: '/browse/en', pathMatch: 'full'},
   {path: 'sw', redirectTo: '/browse/sw', pathMatch: 'full'},
   {path: 'hi', redirectTo: '/browse/hi', pathMatch: 'full'},
@@ -46,7 +52,9 @@ const routes: Routes = [
     LanguageListComponent,
     LoginComponent,
     EmployeePortalComponent,
-    FailedLoginComponent
+    FailedLoginComponent,
+    RecommendationThankYouComponent,
+    LoanOrderConfirmationComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
